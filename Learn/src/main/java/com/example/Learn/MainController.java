@@ -36,7 +36,7 @@ public class MainController {
         userrep.save(n);
         return "Saved";
     }
-
+// Editing
 //    @GetMapping(path="/all")
 //    public @ResponseBody Iterable<User> getAllUsers() {
 //        // This returns a JSON or XML with the users
