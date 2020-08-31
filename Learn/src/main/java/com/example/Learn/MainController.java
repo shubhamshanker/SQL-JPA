@@ -37,19 +37,19 @@ public class MainController {
         return "Saved";
     }
 
-    @GetMapping(path="/all")
-    public @ResponseBody Iterable<User> getAllUsers() {
-        // This returns a JSON or XML with the users
-//        if (userrep.findByNameOrEmail(name) != null)
-//            return userrep.findByNameOrEmail(name);
-        return userrep.findAll();
-
-    }
+//    @GetMapping(path="/all")
+//    public @ResponseBody Iterable<User> getAllUsers() {
+//        // This returns a JSON or XML with the users
+////        if (userrep.findByNameOrEmail(name) != null)
+////            return userrep.findByNameOrEmail(name);
+//        return userrep.findAll();
+//
+//    }
 //    @GetMapping(path="/email")
 //    public @ResponseBody List<User> userbyemail(@RequestParam String email) {
 //        return userrep.findByEmail(email);
 //   }
-    @GetMapping(path="/name")
+    @GetMapping(path="/search")
     public @ResponseBody Iterable<User> userbyname(@RequestParam String name, String email) {
         //Collection col = userrep.findByNameOrEmail(name,email);
         int counter = 0;
