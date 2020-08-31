@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.List;
 
 @Controller
@@ -39,16 +40,25 @@ public class MainController {
     @GetMapping(path="/all")
     public @ResponseBody Iterable<User> getAllUsers() {
         // This returns a JSON or XML with the users
+//        if (userrep.findByNameOrEmail(name) != null)
+//            return userrep.findByNameOrEmail(name);
         return userrep.findAll();
-    }
-    @GetMapping(path="/email")
-    public @ResponseBody List<User> userbyemail(@RequestParam String email) {
-        return userrep.findByEmail(email);
-    }
 
+    }
+//    @GetMapping(path="/email")
+//    public @ResponseBody List<User> userbyemail(@RequestParam String email) {
+//        return userrep.findByEmail(email);
+//   }
     @GetMapping(path="/name")
-    public @ResponseBody List<User> userbyname(@RequestParam String name) {
-        return userrep.findByName(name);
+    public @ResponseBody Iterable<User> userbyname(@RequestParam String name, String email) {
+        //Collection col = userrep.findByNameOrEmail(name,email);
+        int counter = 0;
+        for(Object i : userrep.findByNameOrEmail(name,email)){
+            counter++;
+        }
+        if(counter == 0) return userrep.findAll();
+        else return userrep.findByNameOrEmail(name,email);
+
     }
 
 

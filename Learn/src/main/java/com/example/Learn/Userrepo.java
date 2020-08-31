@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface Userrepo extends CrudRepository<User, String> {
 
-    List<User> findByName(String name);
-    List<User> findByEmail(String email);
+    Iterable<User> findByNameOrEmail(String name, String email);
+    //List<User> findByEmail(String email);
 
 }
 
