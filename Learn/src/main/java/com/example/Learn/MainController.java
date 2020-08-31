@@ -50,7 +50,7 @@ public class MainController {
 //        return userrep.findByEmail(email);
 //   }
     @GetMapping(path="/search")
-    public @ResponseBody Iterable<User> userbyname(@RequestParam String name, String email) {
+    public @ResponseBody Iterable<User> userbyname(@RequestParam(required = false) String name, String email) {
         //Collection col = userrep.findByNameOrEmail(name,email);
         int counter = 0;
         for(Object i : userrep.findByNameOrEmail(name,email)){
